@@ -50,6 +50,6 @@ export const deleteProduct = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({"message" : "Successfully deleted a product"});
+    res.json({message : "Successfully deleted product"});
   });
 }
