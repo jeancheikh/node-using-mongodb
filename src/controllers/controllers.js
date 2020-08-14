@@ -13,3 +13,14 @@ export const addnewProduct = (req, res) => {
     res.json(Product)
   });
 }
+
+export const getProducts = (req, res) => {
+  let Product = new Product(req.body);
+
+  Product.find((err, Product) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(Product);
+  });
+}
