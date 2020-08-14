@@ -15,9 +15,18 @@ export const addnewProduct = (req, res) => {
 }
 
 export const getProducts = (req, res) => {
-  let Product = new Product(req.body);
 
-  Product.find((err, Product) => {
+  Product.find({}, (err, Product) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(Product);
+  });
+}
+
+export const getProductWithID = (req, res) => {
+
+  Product.findById(req.params.ProductID, (err, Product) => {
     if (err) {
       res.send(err);
     }
